@@ -13,5 +13,12 @@
 .percentage {
 	cursor: pointer;
 	background-color: hsl(183, 100%, 15%);
-	color: hsl(100, 100%, 100%);
+	color: hsl(0, 0%, 100%);
+	border-radius: 5px;
+}
+.custom {
+	cursor: pointer;
+	background-color: hsl(189, 41%, 97%);
+	color: (186, 14%, 43%);
+	border-radius: 5px;
 }
