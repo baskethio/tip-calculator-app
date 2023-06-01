@@ -35,7 +35,7 @@ export default function TipCalculator() {
 					calculateTipAmount(values);
 					setSubmitting(false);
 				}}>
-				{({ values, setFieldValue }) => {
+				{({ values, setFieldValue, resetForm }) => {
 					const tipTotal = (values.bill * values.tipPercentage) / 100;
 					const tipAmount =
 						values.numberOfPeople > 0 ? tipTotal / values.numberOfPeople : 0;
@@ -122,6 +122,7 @@ export default function TipCalculator() {
 												type="button"
 												className="reset-button"
 												value="RESET"
+												onClick={() => resetForm()}
 											/>
 										</Center>
 									</div>
