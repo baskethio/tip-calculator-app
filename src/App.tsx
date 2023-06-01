@@ -1,5 +1,6 @@
 import "./App.css";
-import { MantineProvider, Text } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
+import TipCalculator from "./Components/TipCalculator";
 
 function App() {
 	return (
@@ -7,7 +8,7 @@ function App() {
 			theme={{ fontFamily: "Space Mono" }}
 			withGlobalStyles
 			withNormalizeCSS>
-			<Text>Tip Calculator!</Text>
+			<TipCalculator />
 		</MantineProvider>
 	);
 }
