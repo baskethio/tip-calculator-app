@@ -55,7 +55,11 @@ export default function TipCalculator() {
 										<div className="select-tip">
 											{tipPercentages.map((percentage) => (
 												<div
-													className="percentage button"
+													className={`percentage button ${
+														percentage === values.tipPercentage
+															? " primary-button"
+															: ""
+													}`}
 													key={percentage}
 													data-percentage={percentage}
 													onClick={(event) =>
