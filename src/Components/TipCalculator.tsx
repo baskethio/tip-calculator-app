@@ -10,9 +10,6 @@ import { Formik } from "formik";
 import { User } from "tabler-icons-react";
 export default function TipCalculator() {
 	const tipPercentages = [5, 10, 15, 25, 50];
-	const activatePercentage = (event: React.MouseEvent<HTMLDivElement>) => {
-		console.log(event.currentTarget.dataset.percentage);
-	};
 	type TipType = {
 		bill: number;
 		tipPercentage: number;
@@ -108,14 +105,18 @@ export default function TipCalculator() {
 												<Text className="white-text">Tip Amount</Text>
 												<Text className="grayish-cyan-text">/ person</Text>
 											</div>
-											<Text className="primary-text">${tipAmount}</Text>
+											<Text className="primary-text">
+												${Math.trunc(tipAmount * 100) / 100}
+											</Text>
 										</div>
 										<div className="two-cols">
 											<div>
 												<Text className="white-text">Total</Text>
 												<Text className="grayish-cyan-text">/ person</Text>
 											</div>
-											<Text className="primary-text">${tipTotal}</Text>
+											<Text className="primary-text">
+												${Math.trunc(tipTotal * 100) / 100}
+											</Text>
 										</div>
 										<Center mt={50}>
 											<input
