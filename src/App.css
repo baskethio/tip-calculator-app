@@ -2,6 +2,11 @@
 	max-width: 1440px;
 	margin: 0 auto;
 	padding: 2rem;
+	--primary: hsl(172, 67%, 45%);
+	--dark-cyan: hsl(183, 100%, 15%);
+	--dark-grayish-cyan: hsl(186, 14%, 43%);
+	--very-light-grayish-cyan: hsl(189, 41%, 97%);
+	--white: hsl(0, 0%, 100%);
 }
 
 .title {
@@ -21,29 +26,38 @@
 }
 
 .percentage {
-	background-color: hsl(183, 100%, 15%);
-	color: hsl(0, 0%, 100%);
+	background-color: var(--dark-cyan);
+	color: var(--white);
 }
 
 .percentage.primary-button {
-	background-color: hsl(172, 67%, 45%);
-	color: hsl(183, 100%, 15%);
+	background-color: var(--primary);
+	color: var(--dark-cyan);
 }
 
 .custom {
-	background-color: hsl(189, 41%, 97%);
-	color: hsl(186, 14%, 43%);
+	background-color: var(--very-light-grayish-cyan);
+	color: var(--dark-grayish-cyan);
 }
 .tip-amount-container {
-	background-color: hsl(183, 100%, 15%);
+	background-color: var(--dark-cyan);
 	border-radius: 12px;
 	padding: 20px;
 }
 
 .white-text {
-	color: hsl(0, 0%, 100%);
+	color: var(--white);
 }
 
 .grayish-cyan-text {
-	color: hsl(186, 14%, 43%);
+	color: var(--dark-grayish-cyan);
+}
+
+.primary-text {
+	color: var(--primary);
+}
+
+.two-cols {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 }

@@ -1,4 +1,11 @@
-import { Container, NumberInput, SimpleGrid, Text } from "@mantine/core";
+import {
+	Button,
+	Center,
+	Container,
+	NumberInput,
+	SimpleGrid,
+	Text,
+} from "@mantine/core";
 import { Formik } from "formik";
 import { User } from "tabler-icons-react";
 export default function TipCalculator() {
@@ -29,8 +36,9 @@ export default function TipCalculator() {
 					setSubmitting(false);
 				}}>
 				{({ values, setFieldValue }) => {
+					const tipTotal = (values.bill * values.tipPercentage) / 100;
 					const tipAmount =
-						(values.bill * values.tipPercentage) / 100 / values.numberOfPeople;
+						values.numberOfPeople > 0 ? tipTotal / values.numberOfPeople : 0;
 					return (
 						<form>
 							<Container mt={40}>
@@ -62,12 +70,14 @@ export default function TipCalculator() {
 													}`}
 													key={percentage}
 													data-percentage={percentage}
-													onClick={(event) =>
-														setFieldValue(
-															"tipPercentage",
-															event.currentTarget.dataset.percentage
-														)
-													}>
+													onClick={(event) => {
+														if (event.currentTarget.dataset.percentage) {
+															setFieldValue(
+																"tipPercentage",
+																parseInt(event.currentTarget.dataset.percentage)
+															);
+														}
+													}}>
 													{percentage}&#37;
 												</div>
 											))}
@@ -84,17 +94,32 @@ export default function TipCalculator() {
 												},
 											}}
 											value={values.numberOfPeople}
-											onChange={(val) => setFieldValue("numberOfPeople", val)}
+											min={1}
+											onChange={(val) => {
+												if (val) {
+													setFieldValue("numberOfPeople", val > 0 ? val : 1);
+												}
+											}}
 										/>
 									</div>
 									<div className="tip-amount-container">
-										<div>
+										<div className="two-cols">
 											<div>
 												<Text className="white-text">Tip Amount</Text>
 												<Text className="grayish-cyan-text">/ person</Text>
 											</div>
-											<Text>${tipAmount}</Text>
+											<Text className="primary-text">${tipAmount}</Text>
 										</div>
+										<div className="two-cols">
+											<div>
+												<Text className="white-text">Total</Text>
+												<Text className="grayish-cyan-text">/ person</Text>
+											</div>
+											<Text className="primary-text">${tipTotal}</Text>
+										</div>
+										<Center>
+											<div className="button primary-button">Reset</div>
+										</Center>
 									</div>
 								</SimpleGrid>
 							</Container>
