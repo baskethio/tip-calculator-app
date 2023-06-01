@@ -117,8 +117,12 @@ export default function TipCalculator() {
 											</div>
 											<Text className="primary-text">${tipTotal}</Text>
 										</div>
-										<Center>
-											<div className="button primary-button">Reset</div>
+										<Center mt={50}>
+											<input
+												type="button"
+												className="reset-button"
+												value="RESET"
+											/>
 										</Center>
 									</div>
 								</SimpleGrid>

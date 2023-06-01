@@ -42,7 +42,7 @@
 .tip-amount-container {
 	background-color: var(--dark-cyan);
 	border-radius: 12px;
-	padding: 20px;
+	padding: 40px;
 }
 
 .white-text {
@@ -60,4 +60,15 @@
 .two-cols {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+}
+.reset-button {
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: 700;
+	padding: 12px;
+	width: 100%;
+	background-color: var(--primary);
+	color: var(--dark-cyan);
+	border: none;
+	border-radius: 3px;
 }
