@@ -1,4 +1,5 @@
 import {
+	Box,
 	Center,
 	Container,
 	NumberInput,
@@ -18,7 +19,7 @@ export default function TipCalculator() {
 		console.log(values);
 	};
 	return (
-		<div>
+		<Box className="light-cyan-container">
 			<div className="title">
 				<Text>SPLI</Text>
 				<Text>TTER</Text>
@@ -36,106 +37,119 @@ export default function TipCalculator() {
 					const tipAmount =
 						values.numberOfPeople > 0 ? tipTotal / values.numberOfPeople : 0;
 					return (
-						<form>
-							<Container mt={40}>
-								<SimpleGrid
-									cols={2}
-									breakpoints={[{ maxWidth: "45rem", cols: 1, spacing: "sm" }]}>
-									<div>
-										<Text>Bill</Text>
-										<NumberInput
-											hideControls
-											icon="$"
-											styles={{
-												input: {
-													textAlign: "right",
-												},
-											}}
-											precision={2}
-											value={values.bill}
-											onChange={(val) => setFieldValue("bill", val)}
-										/>
-										<Text size="sm">Select Tip &#37;</Text>
-										<SimpleGrid
-											cols={3}
-											breakpoints={[
-												{ maxWidth: "45rem", cols: 2, spacing: "sm" },
-											]}>
-											{tipPercentages.map((percentage) => (
-												<div
-													className={`percentage button ${
-														percentage === values.tipPercentage
-															? " primary-button"
-															: ""
-													}`}
-													key={percentage}
-													data-percentage={percentage}
-													onClick={(event) => {
-														if (event.currentTarget.dataset.percentage) {
-															setFieldValue(
-																"tipPercentage",
-																parseInt(event.currentTarget.dataset.percentage)
-															);
-														}
-													}}>
-													{percentage}&#37;
-												</div>
-											))}
-											<div className="custom button">Custom</div>
-										</SimpleGrid>
-
-										<Text>Number of People</Text>
-										<NumberInput
-											hideControls
-											icon={<User />}
-											styles={{
-												input: {
-													textAlign: "right",
-												},
-											}}
-											value={values.numberOfPeople}
-											min={1}
-											onChange={(val) => {
-												if (val) {
-													setFieldValue("numberOfPeople", val > 0 ? val : 1);
-												}
-											}}
-										/>
-									</div>
-									<div className="tip-amount-container">
-										<div className="two-cols">
-											<div>
-												<Text className="white-text">Tip Amount</Text>
-												<Text className="grayish-cyan-text">/ person</Text>
-											</div>
-											<Text className="primary-text">
-												${Math.trunc(tipAmount * 100) / 100}
-											</Text>
-										</div>
-										<div className="two-cols">
-											<div>
-												<Text className="white-text">Total</Text>
-												<Text className="grayish-cyan-text">/ person</Text>
-											</div>
-											<Text className="primary-text">
-												${Math.trunc(tipTotal * 100) / 100}
-											</Text>
-										</div>
-										<Center mt={50}>
-											<input
-												type="button"
-												className="reset-button"
-												value="RESET"
-												onClick={() => resetForm()}
+						<Box
+							className="white-container"
+							sx={{
+								borderRadius: "12px",
+								"@media (max-width: 45rem)": {
+									borderRadius: "12px 12px 0 0 !important",
+								},
+							}}>
+							<form>
+								<Container mt={40}>
+									<SimpleGrid
+										cols={2}
+										breakpoints={[
+											{ maxWidth: "45rem", cols: 1, spacing: "sm" },
+										]}>
+										<div>
+											<Text>Bill</Text>
+											<NumberInput
+												hideControls
+												icon="$"
+												styles={{
+													input: {
+														textAlign: "right",
+													},
+												}}
+												precision={2}
+												value={values.bill}
+												onChange={(val) => setFieldValue("bill", val)}
 											/>
-										</Center>
-									</div>
-								</SimpleGrid>
-							</Container>
-						</form>
+											<Text size="sm">Select Tip &#37;</Text>
+											<SimpleGrid
+												cols={3}
+												breakpoints={[
+													{ maxWidth: "45rem", cols: 2, spacing: "sm" },
+												]}>
+												{tipPercentages.map((percentage) => (
+													<div
+														className={`percentage button ${
+															percentage === values.tipPercentage
+																? " primary-button"
+																: ""
+														}`}
+														key={percentage}
+														data-percentage={percentage}
+														onClick={(event) => {
+															if (event.currentTarget.dataset.percentage) {
+																setFieldValue(
+																	"tipPercentage",
+																	parseInt(
+																		event.currentTarget.dataset.percentage
+																	)
+																);
+															}
+														}}>
+														{percentage}&#37;
+													</div>
+												))}
+												<div className="custom button">Custom</div>
+											</SimpleGrid>
+
+											<Text>Number of People</Text>
+											<NumberInput
+												hideControls
+												icon={<User />}
+												styles={{
+													input: {
+														textAlign: "right",
+													},
+												}}
+												value={values.numberOfPeople}
+												min={1}
+												onChange={(val) => {
+													if (val) {
+														setFieldValue("numberOfPeople", val > 0 ? val : 1);
+													}
+												}}
+											/>
+										</div>
+										<div className="tip-amount-container">
+											<div className="two-cols">
+												<div>
+													<Text className="white-text">Tip Amount</Text>
+													<Text className="grayish-cyan-text">/ person</Text>
+												</div>
+												<Text className="primary-text">
+													${Math.trunc(tipAmount * 100) / 100}
+												</Text>
+											</div>
+											<div className="two-cols">
+												<div>
+													<Text className="white-text">Total</Text>
+													<Text className="grayish-cyan-text">/ person</Text>
+												</div>
+												<Text className="primary-text">
+													${Math.trunc(tipTotal * 100) / 100}
+												</Text>
+											</div>
+											<Center mt={50}>
+												<input
+													type="button"
+													className="reset-button"
+													value="RESET"
+													onClick={() => resetForm()}
+												/>
+											</Center>
+										</div>
+									</SimpleGrid>
+								</Container>
+							</form>
+						</Box>
 					);
 				}}
 			</Formik>
-		</div>
+		</Box>
 	);
 }

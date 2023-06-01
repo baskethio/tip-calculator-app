@@ -5,11 +5,22 @@
 	--primary: hsl(172, 67%, 45%);
 	--dark-cyan: hsl(183, 100%, 15%);
 	--dark-grayish-cyan: hsl(186, 14%, 43%);
+	--light-grayish-cyan: hsl(185, 41%, 84%);
 	--very-light-grayish-cyan: hsl(189, 41%, 97%);
 	--white: hsl(0, 0%, 100%);
 }
 
+.light-cyan-container {
+	background-color: var(--light-grayish-cyan);
+}
+
+.white-container {
+	background-color: var(--white);
+	padding: 12px;
+}
+
 .title {
+	padding: 21px;
 	text-align: center;
 }
 
