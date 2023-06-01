@@ -3,7 +3,10 @@ import { MantineProvider, Text } from "@mantine/core";
 
 function App() {
 	return (
-		<MantineProvider withGlobalStyles withNormalizeCSS>
+		<MantineProvider
+			theme={{ fontFamily: "Space Mono" }}
+			withGlobalStyles
+			withNormalizeCSS>
 			<Text>Tip Calculator!</Text>
 		</MantineProvider>
 	);
