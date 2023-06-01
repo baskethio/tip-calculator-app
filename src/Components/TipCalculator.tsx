@@ -19,7 +19,17 @@ export default function TipCalculator() {
 		console.log(values);
 	};
 	return (
-		<Box className="light-cyan-container">
+		<Box
+			className="light-cyan-container"
+			sx={{
+				width: "80%",
+				margin: "0 auto",
+				paddingBottom: "50px",
+				"@media (max-width: 45rem)": {
+					borderRadius: "12px 12px 0 0 !important",
+					paddingBottom: "0",
+				},
+			}}>
 			<div className="title">
 				<Text>SPLI</Text>
 				<Text>TTER</Text>
@@ -41,8 +51,12 @@ export default function TipCalculator() {
 							className="white-container"
 							sx={{
 								borderRadius: "12px",
+								fontSize: "11px",
+								width: "80%",
+								margin: "0 auto",
 								"@media (max-width: 45rem)": {
 									borderRadius: "12px 12px 0 0 !important",
+									width: "100%",
 								},
 							}}>
 							<form>
@@ -66,7 +80,7 @@ export default function TipCalculator() {
 												value={values.bill}
 												onChange={(val) => setFieldValue("bill", val)}
 											/>
-											<Text size="sm">Select Tip &#37;</Text>
+											<Text>Select Tip &#37;</Text>
 											<SimpleGrid
 												cols={3}
 												breakpoints={[
@@ -121,7 +135,7 @@ export default function TipCalculator() {
 													<Text className="white-text">Tip Amount</Text>
 													<Text className="grayish-cyan-text">/ person</Text>
 												</div>
-												<Text className="primary-text">
+												<Text className="primary-text" size="md">
 													${Math.trunc(tipAmount * 100) / 100}
 												</Text>
 											</div>
@@ -130,7 +144,7 @@ export default function TipCalculator() {
 													<Text className="white-text">Total</Text>
 													<Text className="grayish-cyan-text">/ person</Text>
 												</div>
-												<Text className="primary-text">
+												<Text className="primary-text" size="md">
 													${Math.trunc(tipTotal * 100) / 100}
 												</Text>
 											</div>

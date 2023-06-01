@@ -28,6 +28,7 @@
 	text-align: center;
 	cursor: pointer;
 	border-radius: 5px;
+	font-size: "24px";
 }
 
 .percentage {
@@ -68,7 +69,7 @@
 }
 .reset-button {
 	cursor: pointer;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: 700;
 	padding: 12px;
 	width: 100%;
