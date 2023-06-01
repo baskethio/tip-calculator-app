@@ -1,5 +1,5 @@
 import { Container, NumberInput, Text } from "@mantine/core";
-
+import { User } from "tabler-icons-react";
 export default function TipCalculator() {
 	const tipPercentages = ["5%", "10%", "15%", "25%", "50%", "custom"];
 	const activatePercentage = (percentage: React.MouseEvent<HTMLDivElement>) => {
@@ -31,6 +31,17 @@ export default function TipCalculator() {
 						</div>
 					))}
 				</div>
+
+				<Text>Number of People</Text>
+				<NumberInput
+					hideControls
+					icon={<User />}
+					styles={{
+						input: {
+							textAlign: "right",
+						},
+					}}
+				/>
 			</Container>
 		</div>
 	);
