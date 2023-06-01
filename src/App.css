@@ -13,12 +13,6 @@
 	text-align: center;
 }
 
-.select-tip {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 5px;
-}
-
 .button {
 	text-align: center;
 	cursor: pointer;

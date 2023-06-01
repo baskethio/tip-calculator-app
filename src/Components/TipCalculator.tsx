@@ -1,5 +1,4 @@
 import {
-	Button,
 	Center,
 	Container,
 	NumberInput,
@@ -57,7 +56,11 @@ export default function TipCalculator() {
 											onChange={(val) => setFieldValue("bill", val)}
 										/>
 										<Text size="sm">Select Tip &#37;</Text>
-										<div className="select-tip">
+										<SimpleGrid
+											cols={3}
+											breakpoints={[
+												{ maxWidth: "45rem", cols: 2, spacing: "sm" },
+											]}>
 											{tipPercentages.map((percentage) => (
 												<div
 													className={`percentage button ${
@@ -79,7 +82,7 @@ export default function TipCalculator() {
 												</div>
 											))}
 											<div className="custom button">Custom</div>
-										</div>
+										</SimpleGrid>
 
 										<Text>Number of People</Text>
 										<NumberInput
