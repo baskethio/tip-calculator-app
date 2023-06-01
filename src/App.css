@@ -4,3 +4,14 @@
 	padding: 2rem;
 	text-align: center;
 }
+.select-tip {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 5px;
+}
+
+.percentage {
+	cursor: pointer;
+	background-color: hsl(183, 100%, 15%);
+	color: hsl(100, 100%, 100%);
+}

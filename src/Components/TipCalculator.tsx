@@ -1,6 +1,10 @@
 import { Container, NumberInput, Text } from "@mantine/core";
 
 export default function TipCalculator() {
+	const tipPercentages = ["5%", "10%", "15%", "25%", "50%", "custom"];
+	const activatePercentage = (percentage: React.MouseEvent<HTMLDivElement>) => {
+		console.log(percentage.currentTarget.innerText);
+	};
 	return (
 		<div>
 			<Text>SPLI</Text>
@@ -16,6 +20,17 @@ export default function TipCalculator() {
 						},
 					}}
 				/>
+				<Text size="sm">Select Tip &#37;</Text>
+				<div className="select-tip">
+					{tipPercentages.map((percentage) => (
+						<div
+							className="percentage"
+							key={percentage}
+							onClick={(percentage) => activatePercentage(percentage)}>
+							{percentage}
+						</div>
+					))}
+				</div>
 			</Container>
 		</div>
 	);
