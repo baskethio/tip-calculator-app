@@ -16,19 +16,20 @@
 
 .white-container {
 	background-color: var(--white);
-	padding: 12px;
+	padding: 24px;
 }
 
 .title {
 	padding: 21px;
 	text-align: center;
+	letter-spacing: 0.7rem;
 }
 
 .button {
 	text-align: center;
 	cursor: pointer;
 	border-radius: 5px;
-	font-size: "24px";
+	padding: 5px;
 }
 
 .percentage {
@@ -66,7 +67,9 @@
 .two-cols {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	margin-top: 15px;
 }
+
 .reset-button {
 	cursor: pointer;
 	font-size: 12px;
