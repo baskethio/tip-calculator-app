@@ -2,23 +2,43 @@
 	max-width: 1440px;
 	margin: 0 auto;
 	padding: 2rem;
+}
+
+.title {
 	text-align: center;
 }
+
 .select-tip {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 5px;
 }
 
-.percentage {
+.button {
+	text-align: center;
 	cursor: pointer;
-	background-color: hsl(183, 100%, 15%);
-	color: hsl(0, 0%, 100%);
 	border-radius: 5px;
 }
+
+.percentage {
+	background-color: hsl(183, 100%, 15%);
+	color: hsl(0, 0%, 100%);
+}
+
 .custom {
-	cursor: pointer;
 	background-color: hsl(189, 41%, 97%);
-	color: (186, 14%, 43%);
-	border-radius: 5px;
+	color: hsl(186, 14%, 43%);
+}
+.tip-amount-container {
+	background-color: hsl(183, 100%, 15%);
+	border-radius: 12px;
+	padding: 20px;
+}
+
+.white-text {
+	color: hsl(0, 0%, 100%);
+}
+
+.grayish-cyan-text {
+	color: hsl(186, 14%, 43%);
 }

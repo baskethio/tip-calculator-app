@@ -7,8 +7,10 @@ export default function TipCalculator() {
 	};
 	return (
 		<div>
-			<Text>SPLI</Text>
-			<Text>TTER</Text>
+			<div className="title">
+				<Text>SPLI</Text>
+				<Text>TTER</Text>
+			</div>
 
 			<Container mt={40}>
 				<SimpleGrid
@@ -28,14 +30,14 @@ export default function TipCalculator() {
 						<div className="select-tip">
 							{tipPercentages.map((percentage) => (
 								<div
-									className="percentage"
+									className="percentage button"
 									key={percentage}
 									data-percentage={percentage}
 									onClick={(event) => activatePercentage(event)}>
 									{percentage}&#37;
 								</div>
 							))}
-							<div className="custom">Custom</div>
+							<div className="custom button">Custom</div>
 						</div>
 
 						<Text>Number of People</Text>
@@ -49,7 +51,12 @@ export default function TipCalculator() {
 							}}
 						/>
 					</div>
-					<div></div>
+					<div className="tip-amount-container">
+						<div>
+							<Text className="white-text">Tip Amount</Text>
+							<Text className="grayish-cyan-text">/ person</Text>
+						</div>
+					</div>
 				</SimpleGrid>
 			</Container>
 		</div>
