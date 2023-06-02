@@ -38,7 +38,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/baskethio/tip-calculator-app)
-- Live Site URL: [Add live site URL here](https://baskethio.github.io/tip-calculator-app/)
+- Live Site URL: [Tip calculator app](https://baskethio.github.io/tip-calculator-app/)
 
 ## My process
 
