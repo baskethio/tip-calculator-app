@@ -4,6 +4,15 @@ import { User } from "tabler-icons-react";
 export default function TipCalculator() {
 	const tipPercentages = [5, 10, 15, 25, 50];
 
+	const validate = (values: { numberOfPeople: number }) => {
+		let errors = { numberOfPeople: "" };
+
+		if (values.numberOfPeople == 0) {
+			errors.numberOfPeople = "Can't be zero";
+		}
+		return errors;
+	};
+
 	return (
 		<Box
 			className="light-cyan-container"
@@ -22,12 +31,13 @@ export default function TipCalculator() {
 			</div>
 
 			<Formik
-				initialValues={{ bill: 142.55, tipPercentage: 15, numberOfPeople: 5 }}
+				initialValues={{ bill: 0, tipPercentage: 0, numberOfPeople: 0 }}
 				onSubmit={(values, { setSubmitting }) => {
-					console.log(values);
 					setSubmitting(false);
-				}}>
-				{({ values, setFieldValue, resetForm }) => {
+				}}
+				validate={validate}>
+				{({ values, setFieldValue, resetForm, errors, initialValues }) => {
+					console.log(initialValues === values);
 					const tipTotal = (values.bill * values.tipPercentage) / 100;
 					const tipAmount =
 						values.numberOfPeople > 0 ? tipTotal / values.numberOfPeople : 0;
@@ -96,7 +106,7 @@ export default function TipCalculator() {
 											))}
 											<div className="custom button">Custom</div>
 										</SimpleGrid>
-
+										{errors.numberOfPeople}
 										<NumberInput
 											mt={21}
 											hideControls
@@ -111,10 +121,10 @@ export default function TipCalculator() {
 												},
 											}}
 											value={values.numberOfPeople}
-											min={1}
+											min={0}
 											onChange={(val) => {
 												if (val) {
-													setFieldValue("numberOfPeople", val > 0 ? val : 1);
+													setFieldValue("numberOfPeople", val > 0 ? val : 0);
 												}
 											}}
 										/>
@@ -146,6 +156,7 @@ export default function TipCalculator() {
 										</div>
 										<Center mt={50}>
 											<input
+												disabled={initialValues === values}
 												type="button"
 												className="reset-button"
 												value="RESET"
