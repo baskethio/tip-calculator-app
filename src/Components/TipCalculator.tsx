@@ -49,13 +49,16 @@ export default function TipCalculator() {
 									cols={2}
 									breakpoints={[{ maxWidth: "45rem", cols: 1, spacing: "sm" }]}>
 									<div>
-										<Text>Bill</Text>
 										<NumberInput
 											hideControls
 											icon="$"
+											label="Bill"
 											styles={{
 												input: {
 													textAlign: "right",
+												},
+												label: {
+													fontSize: "11px",
 												},
 											}}
 											precision={2}
@@ -94,13 +97,17 @@ export default function TipCalculator() {
 											<div className="custom button">Custom</div>
 										</SimpleGrid>
 
-										<Text mt={21}>Number of People</Text>
 										<NumberInput
+											mt={21}
 											hideControls
 											icon={<User />}
+											label="Number of People"
 											styles={{
 												input: {
 													textAlign: "right",
+												},
+												label: {
+													fontSize: "11px",
 												},
 											}}
 											value={values.numberOfPeople}
