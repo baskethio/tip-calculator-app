@@ -37,7 +37,6 @@ export default function TipCalculator() {
 				}}
 				validate={validate}>
 				{({ values, setFieldValue, resetForm, errors, initialValues }) => {
-					console.log(initialValues === values);
 					const tipTotal = (values.bill * values.tipPercentage) / 100;
 					const tipAmount =
 						values.numberOfPeople > 0 ? tipTotal / values.numberOfPeople : 0;
@@ -104,7 +103,19 @@ export default function TipCalculator() {
 													{percentage}&#37;
 												</div>
 											))}
-											<div className="custom button">Custom</div>
+											<NumberInput
+												placeholder="Custom"
+												onChange={(value) =>
+													setFieldValue("tipPercentage", value)
+												}
+												hideControls
+												styles={{
+													input: {
+														textAlign: "right",
+														fontSize: "11px",
+													},
+												}}
+											/>
 										</SimpleGrid>
 										{errors.numberOfPeople}
 										<NumberInput
