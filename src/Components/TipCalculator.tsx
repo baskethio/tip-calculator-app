@@ -126,7 +126,10 @@ export default function TipCalculator() {
 												<Text className="grayish-cyan-text">/ person</Text>
 											</div>
 											<Text className="primary-text" size="md">
-												${Math.trunc(tipAmount * 100) / 100}
+												$
+												{tipAmount > 0
+													? Math.trunc(tipAmount * 100) / 100
+													: "0.00"}
 											</Text>
 										</div>
 										<div className="two-cols">
@@ -135,7 +138,10 @@ export default function TipCalculator() {
 												<Text className="grayish-cyan-text">/ person</Text>
 											</div>
 											<Text className="primary-text" size="md">
-												${Math.trunc(tipTotal * 100) / 100}
+												$
+												{tipTotal > 0
+													? Math.trunc(tipTotal * 100) / 100
+													: "0.00"}
 											</Text>
 										</div>
 										<Center mt={50}>
