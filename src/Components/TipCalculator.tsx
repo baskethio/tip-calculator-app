@@ -3,14 +3,7 @@ import { Formik } from "formik";
 import { User } from "tabler-icons-react";
 export default function TipCalculator() {
 	const tipPercentages = [5, 10, 15, 25, 50];
-	type TipType = {
-		bill: number;
-		tipPercentage: number;
-		numberOfPeople: number;
-	};
-	const calculateTipAmount = (values: TipType) => {
-		console.log(values);
-	};
+
 	return (
 		<Box
 			className="light-cyan-container"
@@ -32,7 +25,6 @@ export default function TipCalculator() {
 				initialValues={{ bill: 142.55, tipPercentage: 15, numberOfPeople: 5 }}
 				onSubmit={(values, { setSubmitting }) => {
 					console.log(values);
-					calculateTipAmount(values);
 					setSubmitting(false);
 				}}>
 				{({ values, setFieldValue, resetForm }) => {
